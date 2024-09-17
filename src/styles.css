@@ -1,25 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
-* {
-  outline: 1px solid red;
-}
-
 :root {
   --primary-color: #5552ab;
   --secondary-color: #ecebff;
   --accent-color: #f48bce;
-  --text-color: #000017;
+  --text-color: #424242;
   --background-color: #fff9f2;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background: var(--background-color);
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
   color: var(--text-color);
-  height: 100%;
+  height: 100vh;
   width: 100vw;
-  font-family: 'Raleway', sans-serif;
+  background-size: cover;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  transition: background-color 0.5s ease-in-out;
 }
 
 h1,
@@ -30,9 +29,212 @@ h5,
 h6,
 a {
   color: var((--accent-color));
-  font-family: 'Playfair', serif;
+  color: var(--primary-color);
+  font-family: 'Raleway', sans-serif;
 }
 
 a {
   text-decoration: none;
+}
+
+.container {
+  max-width: 1020px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 12px;
+  padding-top: 150px;
+}
+
+.logo {
+  display: flex;
+  gap: 6px;
+  text-shadow:
+    1px 1px 2px rgba(250, 250, 250, 0.6),
+    -1px -1px 2px rgba(250, 250, 250, 0.6),
+    1px -1px 2px rgba(250, 250, 250, 0.6),
+    -1px 1px 2px rgba(250, 250, 250, 0.2);
+}
+
+.header {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form {
+  margin: 24px 0;
+}
+
+.form label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 6px;
+  border-radius: 8px;
+  border: 1px solid var(--primary-color);
+  background: white;
+  gap: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.form input {
+  font-size: 18px;
+  color: var(--primary-color);
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.form button {
+  border-radius: 8px;
+  background: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  cursor: pointer;
+  border: 1px solid var(--secondary-color);
+}
+
+.form form {
+  display: flex;
+  gap: 6px;
+}
+
+.form img {
+  display: block;
+}
+
+.weather-card {
+  background-color: var(--background-color);
+  border-radius: 12px;
+  padding: 64px 36px 8px 36px;
+  box-sizing: border-box;
+  min-height: 250px;
+  margin: 32px 0;
+  box-shadow:
+    rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.weather-card .current-location {
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.weather-card .current-location span {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.info-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 22px;
+}
+
+.weather-info {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.weather-info-data {
+  margin-left: 32px;
+}
+
+.current-temperature {
+  font-size: 94px;
+  font-weight: 600;
+  position: relative;
+}
+
+.current-temperature span {
+  font-size: 28px;
+  position: absolute;
+  top: 0;
+}
+
+.weather-card .info-div {
+  display: flex;
+  gap: 42px;
+}
+
+.today-info {
+  text-align: right;
+}
+
+.weather-h {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.weather-forecast {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  justify-content: center;
+  text-align: center;
+  margin: 42px 0;
+  gap: 12px;
+}
+
+.day-forecast {
+  background-image: linear-gradient(to top, #fbc8d4 0%, #9795f0 100%);
+  border-radius: 12px;
+  padding: 12px 6px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.day-forecast h3 {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 6px;
+  color: var(--background-color);
+}
+
+.day-forecast img {
+  margin: 12px 0;
+}
+
+footer {
+  text-align: center;
+  font-size: 14px;
+  text-shadow: 1px 1px rgba(236, 185, 238, 0.6);
+}
+
+.loading-spinner {
+  border: 8px solid rgba(0, 0, 0, 0.1);
+  border-left: 8px solid #3498db;
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.weather-card h1 {
+  text-align: center;
+  font-size: 32px;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
